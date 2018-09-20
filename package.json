@@ -6,15 +6,27 @@
   "author": "Bolaji Olajide",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "pg": "^7.4.3",
     "sequelize": "^4.38.1",
     "sequelize-cli": "^4.1.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-preset-latest-node": "^2.0.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-latest-node": "^1.0.0",
     "babel-watch": "^2.0.7"
+  },
+  "scripts": {
+    "dev": "babel-watch server.js",
+    "sequelize-cli:es6": "./node_modules/.bin/babel-node ./node_modules/.bin/sequelize $*",
+    "sequelize:init": "yarn sequelize-cli:es6 init",
+    "migrate": "yarn sequelize-cli:es6 db:migrate"
   }
 }
